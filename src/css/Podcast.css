@@ -1,0 +1,34 @@
+.Podcast {
+  font-size: 18px;
+}
+
+.Podcast-content {
+  padding: 10px;
+}
+
+.Podcast-header {
+  position: relative;
+  height: 180px;
+  top: 30px;
+  /*padding-top: 10px;*/
+  font-size: 26px;
+  text-align: center;
+  vertical-align: middle;
+  /*position: relative;*/
+}
+
+.Podcast-text {
+  padding-bottom: 320px;
+  padding-top:30px
+
+}
+
+.Podcast-text .name {
+  font-weight: 600;
+  margin-top: 15px;
+}
+
+.Podcast-text .instrumental {
+  font-style: italic;
+  margin: 10px 0;
+}

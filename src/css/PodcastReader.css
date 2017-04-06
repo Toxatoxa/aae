@@ -1,0 +1,39 @@
+.PodcastReader {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.PodcastReader.playing .PodcastReader-top,
+.PodcastReader.playing .PodcastReader-bottom
+{
+  background-color: black;
+  opacity: 0.3;
+}
+
+
+.PodcastReader-top{
+
+  height: 200px;
+}
+
+.PodcastReader-middle {
+  background-color: transparent;
+  height: 70px;
+  vertical-align: middle;
+}
+
+.PodcastReader-middle .cursor{
+  height: 50px;
+  width: 2px;
+  background-color: #FF2D55;
+  position: relative;
+  left: 4px;
+  top: 10px;
+}
+
+.PodcastReader-bottom {
+  height: 100%;
+}
