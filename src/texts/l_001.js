@@ -1,15 +1,22 @@
 import React, {Component} from 'react';
 import Scroll from 'react-scroll';
 
-var Element = Scroll.Element;
+// var Element = Scroll.Element;
 
-// class Element extends Component {
-//   render() {
-//     return (
-//       <span {...this.props}>{this.props.children}</span>
-//     );
-//   }
-// }
+class Element extends Component {
+  test() {
+    console.log('!!!!!!!!!!!!!!!');
+  }
+  render() {
+    return (
+      <span onClick={() => this.test()} {...this.props}>{this.props.children}</span>
+    );
+  }
+}
+
+function test() {
+  console.log('!!!!!!!!!!!!!!!');
+}
 
 const text = () => {
     return (
