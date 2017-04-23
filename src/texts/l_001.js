@@ -4,27 +4,16 @@ import Scroll from 'react-scroll';
 // var Element = Scroll.Element;
 
 class Element extends Component {
-  test() {
-    console.log('!!!!!!!!!!!!!!!');
-  }
   render() {
     return (
-      <span onClick={() => this.test()} {...this.props}>{this.props.children}</span>
+      <span {...this.props}>{this.props.children}</span>
     );
   }
-}
-
-function test() {
-  console.log('!!!!!!!!!!!!!!!');
 }
 
 const text = () => {
     return (
         <div>
-            <div className="name">
-                <div className="name">Michelle</div>
-            </div>
-
             <div className="name">Lindsay</div>
 
             <Element className="el" name="test_scroll_1">This</Element>&nbsp;
