@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import '../css/App.css';
 import Podcast from './Podcast';
-import BottomBar from './BottomBar';
+import BottonBar from './BottonBar';
 import '../css/index.css';
 
 class App extends Component {
@@ -9,7 +9,7 @@ class App extends Component {
     return (
       <div className="App">
         <Podcast />
-        <BottomBar />
+        <BottonBar />
       </div>
     );
   }

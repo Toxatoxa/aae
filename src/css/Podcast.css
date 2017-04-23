@@ -1,34 +1,57 @@
 .Podcast {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 .Podcast-content {
-  padding: 10px;
+    padding: 10px;
 }
 
 .Podcast-header {
-  position: relative;
-  height: 180px;
-  top: 30px;
-  /*padding-top: 10px;*/
-  font-size: 26px;
-  text-align: center;
-  vertical-align: middle;
-  /*position: relative;*/
+    position: relative;
+    height: 180px;
+    top: 30px;
+    /*padding-top: 10px;*/
+    font-size: 26px;
+    text-align: center;
+    vertical-align: middle;
+    /*position: relative;*/
 }
 
 .Podcast-text {
-  padding-bottom: 320px;
-  padding-top:30px
-
+    padding-bottom: 320px;
+    padding-top: 30px
 }
 
 .Podcast-text .name {
-  font-weight: 600;
-  margin-top: 15px;
+    font-weight: 600;
+    margin-top: 15px;
 }
 
 .Podcast-text .instrumental {
-  font-style: italic;
-  margin: 10px 0;
+    font-style: italic;
+    margin: 10px 0;
+}
+
+.Podcast-text .el {
+    display: inline-block;
+}
+
+.Podcast-text.fs-16 {
+  font-size: 16px;
+}
+
+.Podcast-text.fs-17 {
+  font-size: 17px;
+}
+
+.Podcast-text.fs-18 {
+  font-size: 18px;
+}
+
+.Podcast-text.fs-19 {
+  font-size: 19px;
+}
+
+.Podcast-text.fs-20 {
+  font-size: 20px;
 }

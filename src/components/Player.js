@@ -3,7 +3,7 @@ import FontAwesome from 'react-fontawesome';
 import Sound from 'react-sound';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {changeAudio} from '../actions/index';
+import {changeAudio, updateScroll} from '../actions/index';
 
 import '../css/Player.css';
 
@@ -14,24 +14,36 @@ class Player extends Component {
 
         this.state = {
             audio: {
-                'status': 'pause'
+                status: 'pause',
+                loadingStatus: 0,  // 0 - was now loaded, 1 - loading, 2 - was loaded
             }
         };
-
-        this.onPlayButtonClick = this.onPlayButtonClick.bind(this);
 
     }
 
     onPlayButtonClick() {
-        const newAudioStatus = (this.state.audio.status == 'pause')
+
+        const loadingStatus = (this.state.audio.loadingStatus === 0) ? 1 : 2;
+
+        const status = (this.state.audio.status == 'pause')
             ? 'play'
             : 'pause';
         this.props.changeAudio(this.state.audio);
         this.setState({
             audio: {
-                'status': newAudioStatus
+                status,
+                loadingStatus
             }
         });
+    }
+
+    handleSongPlaying(data) {
+
+      if(this.state.audio.loadingStatus === 1) {
+        this.setState({audio:{'loadingStatus' : 2} });
+      }
+
+      this.props.updateScroll(data.position);
     }
 
     render() {
@@ -40,30 +52,37 @@ class Player extends Component {
             ? Sound.status.PAUSED
             : Sound.status.PLAYING;
 
-        const buttonIcon = (this.state.audio.status == 'pause')
-            ? 'play'
-            : 'pause';
+        let buttonIcon;
+
+        if(this.state.audio.loadingStatus === 1) {
+          buttonIcon = 'spinner';
+        } else {
+          buttonIcon = (this.state.audio.status == 'pause')
+              ? 'play'
+              : 'pause';
+        }
 
         return (
             <div className="Player">
 
-              <div className="Player-button">
-                <button onClick={this.onPlayButtonClick}>
-                    <FontAwesome name={buttonIcon} size='2x'/>
-                </button>
-              </div>
+                <div className="Player-button">
+                    <button onClick={this.onPlayButtonClick.bind(this)}>
+                        <FontAwesome name={buttonIcon} size='2x'/>
+                    </button>
+                </div>
 
-                <Sound url="/audio/239.mp3" playStatus={playStatus}/>
+                <Sound
+                  url="/audio/239.mp3"
+                  playStatus={playStatus}
+                  onPlaying={this.handleSongPlaying.bind(this)} />
 
             </div>
         );
     }
 }
 
-function mapDispatchToProps(dispatch) {
-    return bindActionCreators({
-        changeAudio
-    }, dispatch);
+function mapStateToProps({settings}) {
+  return {settings};
 }
 
-export default connect(null, mapDispatchToProps)(Player);
+export default connect(mapStateToProps, {changeAudio, updateScroll})(Player);
